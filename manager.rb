@@ -31,6 +31,39 @@ class Manager < Employee
     # use email sending library
     puts "Email sent!"
   end
+
+  def give_all_raises
+    puts "give_all_raises"
+
+    # No loop
+    # @employees[0].give_annual_raise
+    # @employees[1].give_annual_raise
+
+    # While loop
+    # index = 0
+    # while index < @employees.length
+    #   @employees[index].give_annual_raise
+    #   index = index + 1
+    # end
+
+    # Times loop
+    # index = 0
+    # @employees.length.times do
+    #   @employees[index].give_annual_raise
+    #   index = index + 1
+    # end
+
+    # Each loop
+    @employees.each do |employee|
+      employee.give_annual_raise
+    end
+  end
+
+  def fire_all_employees
+    @employees.each do |employee|
+      employee.active = false
+    end
+  end
 end
 
 employee1 = Employee.new(first_name: "Majora", last_name: "Carter", salary: 80000, active: true)
@@ -58,3 +91,9 @@ manager.send_report
 
 p manager.employees[0].last_name
 p manager.employees[1].last_name
+
+employee1.print_info
+employee2.print_info
+manager.give_all_raises
+employee1.print_info
+employee2.print_info
