@@ -19,6 +19,8 @@ class Employee
 end
 
 class Manager < Employee
+  attr_reader :employees
+
   def initialize(input_options)
     super(input_options)
     @employees = input_options[:employees]
@@ -53,4 +55,6 @@ manager = Manager.new(
 )
 manager.print_info
 manager.send_report
-p manager
+
+p manager.employees[0].last_name
+p manager.employees[1].last_name
